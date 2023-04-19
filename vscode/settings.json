@@ -1,0 +1,22 @@
+{
+    // Visuals
+    "workbench.startupEditor": "none",
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.colorTheme": "One Dark Pro",
+    "zenMode.hideLineNumbers": false,
+    // Editor
+    "editor.fontFamily": "Fira Code, Source Code Pro, 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "editor.detectIndentation": true, // default true
+    "editor.insertSpaces": true, // default true
+    "editor.tabSize": 4, // default 4
+    "files.autoSave": "afterDelay",
+    // Code style
+    "[javascript]": {
+        "editor.tabSize": 2
+    },
+    "[typescript]": {
+        "editor.tabSize": 2
+    }
+    // Extension configs
+}
