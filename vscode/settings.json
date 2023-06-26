@@ -10,6 +10,7 @@
     "editor.detectIndentation": true, // default true
     "editor.insertSpaces": true, // default true
     "editor.tabSize": 4, // default 4
+    "editor.lineNumbers": "relative", //使用相对行号
     "files.autoSave": "afterDelay",
     // Code style
     "[javascript]": {
