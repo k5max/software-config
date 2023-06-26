@@ -1,0 +1,28 @@
+set nu
+set relativenumber
+" No sound on errors
+set noerrorbells    "出错时不要发出响声
+set novisualbell    "出错时关闭视觉提示，通常是屏幕闪烁
+set visualbell t_vb=  "关闭visual bell
+au GuiEnter * set t_vb= "关闭beep
+
+" 快捷键
+" set leader key
+let mapleader=" "
+let g:mapleader=" "
+" 窗口分屏
+nnoremap <leader>sv <C-w>v
+nnoremap <leader>sh <C-w>s
+nnoremap <leader>sc <C-w>c
+" hjkl切换窗口
+nnoremap <C-h> <C-W>h
+nnoremap <C-l> <C-W>l
+nnoremap <C-j> <C-W>j
+nnoremap <C-k> <C-W>k
+nnoremap <C-t> <C-W>t
+nnoremap <S-h> <C-W>5<
+nnoremap <S-l> <C-W>5>
+nnoremap <S-j> <C-W>5-
+nnoremap <S-k> <C-W>5+
+" 取消搜索高亮
+" 上下移动文本
