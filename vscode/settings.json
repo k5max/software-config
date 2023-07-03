@@ -39,7 +39,7 @@
         "<C-c>": true,
 		"<C-v>": true,
 		"<C-w>": true,
-        "<C-z>": true,
+        "<C-z>": true
     },
     "vim.normalModeKeyBindingsNonRecursive": [
         // 窗口分屏
@@ -75,7 +75,7 @@
         // 取消搜索高亮
         {
             "before":["<leader>", "n", "h"],
-            "commands": [":nohl",]
+            "commands": [":nohl"]
         },
         // 格式化代码
         {
@@ -116,7 +116,7 @@
         {
             "before": ["<leader>", "q"],
             "commands": ["workbench.actions.view.problems"]
-        },
+        }
         // {
 		// 	"before": [
 		// 		"<leader>",

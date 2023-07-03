@@ -10,7 +10,7 @@
 			"after": [
 				"<c-w>",
 				"j"
-			],
+			]
 		}
 	},
 	{ // window move up
@@ -21,7 +21,7 @@
 			"after": [
 				"<c-w>",
 				"k"
-			],
+			]
 		}
 	},
 	{ // window move left
@@ -32,7 +32,7 @@
 			"after": [
 				"<c-w>",
 				"h"
-			],
+			]
 		}
 	},
 	{ // window move right
@@ -43,7 +43,7 @@
 			"after": [
 				"<c-w>",
 				"l"
-			],
+			]
 		}
 	},
 	// -----vim settings end------
