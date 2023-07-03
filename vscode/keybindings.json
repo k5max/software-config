@@ -152,9 +152,9 @@
 	},
 	// -----suggest item end------
 
-	{ // enter search bar
-        "key": "enter",
-        "command": "search.focus.nextInputBox",
-        "when": "hasSearchResult && inputBoxFocus"
-    }
+    { // enter search bar
+		"key": "enter",
+		"command": "search.focus.nextInputBox",
+		"when": "inSearchEditor && inputBoxFocus || inputBoxFocus && searchViewletVisible"
+	}
 ]
