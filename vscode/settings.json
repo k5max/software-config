@@ -18,6 +18,139 @@
     },
     "[typescript]": {
         "editor.tabSize": 2
-    }
-    // Extension configs
+    },
+    // vim settings start
+    "vim.useCtrlKeys": true,
+    "vim.useSystemClipboard": true,
+    "vim.leader": "<space>",
+    "vim.foldfix": true, // to avoid fold open up autocamatically
+    "vim.incsearch": true,
+    "vim.hlsearch": true,
+    "vim.sneak": true,
+    "vim.easymotion": false,
+    "vim.surround": false,
+    "vim.handleKeys": {
+		"<C-f>": true,
+        "<C-b>": true,
+        "<C-u>": true,
+        "<C-d>": true,
+		"<C-o>": true,
+		"<C-r>": true,
+        "<C-c>": true,
+		"<C-v>": true,
+		"<C-w>": true,
+        "<C-z>": true,
+    },
+    "vim.normalModeKeyBindingsNonRecursive": [
+        // 窗口分屏
+        {
+            "before":["<leader>", "s", "v"],
+            "after":["<C-w>", "v"]
+        },
+        {
+            "before":["<leader>", "s", "h"],
+            "after":["<C-w>", "s"]
+        },
+        {
+            "before":["<leader>", "s", "c"],
+            "after":["<C-w>", "c"]
+        },
+        // 设置窗口比例
+        {
+            "before":["<leader>", "h"],
+            "after":["<C-w>", "<"]
+        },
+        {
+            "before":["<leader>", "l"],
+            "after":["<C-w>", ">"]
+        },
+        {
+            "before":["<leader>", "j"],
+            "after":["<C-w>", "-"]
+        },
+        {
+            "before":["<leader>", "k"],
+            "after":["<C-w>", "+"]
+        },
+        // 取消搜索高亮
+        {
+            "before":["<leader>", "n", "h"],
+            "commands": [":nohl",]
+        },
+        // 格式化代码
+        {
+			"before": ["<leader>", "f"],
+			"commands": ["editor.action.formatDocument"]
+		},
+        // 打开侧边栏
+        {
+			"before": ["<leader>", "e"],
+			"commands": ["workbench.action.toggleSidebarVisibility"]
+		},
+        // 打开大纲
+        {
+			"before": ["<leader>", "o"],
+			"commands": ["workbench.action.toggleAuxiliaryBar"]
+		},
+        // 搜索文件
+        {
+			"before": ["<leader>", "f", "f"],
+			"commands": ["workbench.action.quickOpen"]
+		},
+        // 全局搜索内容 以search editor 打开
+        {
+			"before": ["<leader>", "f", "g"],
+			"commands": ["search.action.openEditor"]
+		},
+        // 全局搜索内容 默认窗口打开
+        {
+			"before": ["<leader>", "f", "G"],
+			"commands": ["workbench.view.search"]
+		},
+        // 打开版本控制
+        {
+			"before": ["<leader>", "g"],
+			"commands": ["workbench.view.scm"]
+		},
+        // 打开错误信息列表
+        {
+            "before": ["<leader>", "q"],
+            "commands": ["workbench.actions.view.problems"]
+        },
+        // {
+		// 	"before": [
+		// 		"<leader>",
+		// 		"u"
+		// 	],
+		// 	"commands": [
+		// 		"editor.action.referenceSearch.trigger"
+		// 	]
+		// },
+        // {
+		// 	"before": [
+		// 		"<leader>",
+		// 		"U"
+		// 	],
+		// 	"commands": [
+		// 		"references-view.findReferences"
+		// 	]
+		// },
+    ],
+    "vim.visualModeKeyBindings": [
+		// repeatly indent in visual mode
+		{
+			"before": [">"],
+			"commands": ["editor.action.indentLines"]
+		},
+		{
+			"before": ["<"],
+			"commands": ["editor.action.outdentLines"]
+		}
+	],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<leader>", "f"],
+            "commands": ["editor.action.formatSelection"]
+        }
+	]
 }

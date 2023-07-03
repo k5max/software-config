@@ -1,0 +1,160 @@
+// 将键绑定放在此文件中以覆盖默认值auto[]
+[
+	// todo 1.需要解决terminal 和 pane之间的跳转问题；2.需要添加一些git相关快捷键；3.需要配置gd gD gh gi相关lsp的键；4.需要添加输入法切换设置
+	// -----vim settings start------
+    { // window move down
+		"key": "ctrl+j",
+		"command": "vim.remap",
+		"when": "vim.mode == 'Normal' && !suggestWidgetVisible && !inQuickOpen && !panelFocus",
+		"args": {
+			"after": [
+				"<c-w>",
+				"j"
+			],
+		}
+	},
+	{ // window move up
+		"key": "ctrl+k",
+		"command": "vim.remap",
+		"when": "vim.mode == 'Normal' && !suggestWidgetVisible && !inQuickOpen && !panelFocus",
+		"args": {
+			"after": [
+				"<c-w>",
+				"k"
+			],
+		}
+	},
+	{ // window move left
+		"key": "ctrl+h",
+		"command": "vim.remap",
+		"when": "vim.mode == 'Normal' && !suggestWidgetVisible && !inQuickOpen && !panelFocus",
+		"args": {
+			"after": [
+				"<c-w>",
+				"h"
+			],
+		}
+	},
+	{ // window move right
+		"key": "ctrl+l",
+		"command": "vim.remap",
+		"when": "vim.mode == 'Normal' && !suggestWidgetVisible && !inQuickOpen && !panelFocus",
+		"args": {
+			"after": [
+				"<c-w>",
+				"l"
+			],
+		}
+	},
+	// -----vim settings end------
+
+	// -----file explorer start------
+	{ // move down
+		"key": "j",
+		"command": "list.focusDown",
+		"when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+	},
+	{ // move up
+		"key": "k",
+		"command": "list.focusUp",
+		"when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+	},
+	{ // toggle folder expand
+		"key": "tab",
+		"command": "list.toggleExpand",
+		"when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+	},
+	{ // toggle folder expand
+		"key": "o",
+		"command": "list.toggleExpand",
+		"when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+	},
+	{ // select file to open
+		"key": "l",
+		"command": "list.select",
+		"when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+	},
+	{ // collapse folder
+		"key": "h",
+		"command": "list.collapse",
+		"when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+	},
+    { // new file
+		"key": "a",
+		"command": "explorer.newFile",
+		"when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+	},
+	{ // new folder
+		"key": "shift+a",
+		"command": "explorer.newFolder",
+		"when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+	},
+	{ // delete file or folder
+		"key": "d",
+		"command": "deleteFile",
+		"when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+	},
+	{ // rename file
+		"key": "r",
+		"command": "renameFile",
+		"when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+	},
+	{ // disable old style rename shortcut
+		"key": "enter",
+		"command": "-renameFile",
+		"when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+	},
+	// -----file explorer end------
+
+	// -----terminal start------
+	{ // toggle terminal
+		"key": "ctrl+\\",
+		"command": "workbench.action.terminal.toggleTerminal",
+		"when": "terminal.active"
+	},
+	{ // maxmize terminal
+		"key": "ctrl+m",
+		"command": "workbench.action.toggleMaximizedPanel",
+		"when": "terminalFocus"
+	},
+	// -----terminal end------
+
+	// -----suggest item start------
+	{ // move down at auto completion prompt
+		"key": "ctrl+j",
+		"command": "selectNextSuggestion",
+		"when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+	},
+	{ // move up at auto completion prompt
+		"key": "ctrl+k",
+		"command": "selectPrevSuggestion",
+		"when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+	},
+	{ // move down at quick open
+		"key": "ctrl+j",
+		"command": "workbench.action.quickOpenNavigateNext",
+		"when": "inQuickOpen"
+	},
+	{ // move up at quick open
+		"key": "ctrl+k",
+		"command": "workbench.action.quickOpenNavigatePrevious",
+		"when": "inQuickOpen"
+	},
+	{ // move down at problem open
+		"key": "ctrl+shift+j",
+		"command": "list.focusDown",
+		"when": "panelFocus && activePanel == 'workbench.panel.markers' "
+	},
+	{ // move up at problem open
+		"key": "ctrl+shift+k",
+		"command": "list.focusUp",
+		"when": "panelFocus && activePanel == 'workbench.panel.markers' "
+	},
+	// -----suggest item end------
+
+	{ // enter search bar
+        "key": "enter",
+        "command": "search.focus.nextInputBox",
+        "when": "hasSearchResult && inputBoxFocus"
+    }
+]
