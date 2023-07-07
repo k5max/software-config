@@ -1,15 +1,15 @@
+" 行号设置
 set nu
 set relativenumber
-" No sound on errors
-set noerrorbells    "出错时不要发出响声
-set novisualbell    "出错时关闭视觉提示，通常是屏幕闪烁
-set visualbell t_vb=  "关闭visual bell
-au GuiEnter * set t_vb= "关闭beep
 
-" 快捷键
 " set leader key
 let mapleader=" "
 let g:mapleader=" "
+
+" 共享系统剪贴板
+set clipboard=unnamed
+
+" === 快捷键 ===
 " 窗口分屏
 nnoremap <leader>sv <C-w>v
 nnoremap <leader>sh <C-w>s
@@ -20,9 +20,18 @@ nnoremap <C-l> <C-W>l
 nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
 nnoremap <C-t> <C-W>t
-nnoremap <S-h> <C-W>5<
-nnoremap <S-l> <C-W>5>
-nnoremap <S-j> <C-W>5-
-nnoremap <S-k> <C-W>5+
+" 调整窗口大小
+nnoremap <leader>h <C-W>5<
+nnoremap <leader>l <C-W>5>
+nnoremap <leader>j <C-W>5-
+nnoremap <leader>k <C-W>5+
+
 " 取消搜索高亮
 " 上下移动文本
+
+" === 插件 ===
+" 启用 ideavim-sneak 插件
+set sneak
+" 搭配 IdeaVimExtension 使用，解决自动切换输入法
+set keep-english-in-normal " 开启输入法自动切换功能
+set keep-english-in-normal-and-restore-in-insert " 回到insert模式时恢复输入法
