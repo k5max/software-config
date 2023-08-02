@@ -99,6 +99,18 @@
 		"command": "renameFile",
 		"when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
 	},
+	// copy file
+	{
+		"command": "filesExplorer.copy",
+		"key": "c",
+		"when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+	},
+	// paste file
+	{
+		"command": "filesExplorer.paste",
+		"key": "p",
+		"when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+	},
 	{ // disable old style rename shortcut
 		"key": "enter",
 		"command": "-renameFile",
@@ -152,7 +164,7 @@
 	},
 	// -----suggest item end------
 
-    { // enter search bar
+	{ // enter search bar
 		"key": "enter",
 		"command": "search.focus.nextInputBox",
 		"when": "inSearchEditor && inputBoxFocus || inputBoxFocus && searchViewletVisible"

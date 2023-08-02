@@ -1,5 +1,5 @@
 {
-    // Visuals
+    // Visual
     "workbench.startupEditor": "none",
     "workbench.iconTheme": "vscode-icons",
     "workbench.colorTheme": "One Dark Pro",
@@ -9,17 +9,22 @@
     "editor.fontLigatures": true,
     "editor.detectIndentation": true, // default true
     "editor.insertSpaces": true, // default true
+    "editor.linkedEditing": true, // 符号同步修改（比如html/xml标签）
     "editor.tabSize": 4, // default 4
     "editor.lineNumbers": "relative", //使用相对行号
     "editor.cursorBlinking": "solid",
     "editor.minimap.enabled": false,
     "files.autoSave": "afterDelay",
+    "explorer.confirmDelete": true, // 删除确认提示
+    "explorer.confirmDragAndDrop": true, // 拖放确认提示
     // Code style
     "[javascript]": {
-        "editor.tabSize": 2
+        "editor.tabSize": 2,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[typescript]": {
-        "editor.tabSize": 2
+        "editor.tabSize": 2,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     // vim settings start
     "vim.useCtrlKeys": true,
@@ -28,6 +33,8 @@
     "vim.foldfix": true, // to avoid fold open up autocamatically
     "vim.incsearch": true,
     "vim.hlsearch": true,
+    "vim.highlightedyank.enable": true,
+    "vim.highlightedyank.color": "rgba(252, 93, 124, 0.7)",
     "vim.sneak": true,
     "vim.easymotion": false,
     "vim.surround": false,
@@ -154,7 +161,7 @@
             "before": ["<leader>", "f"],
             "commands": ["editor.action.formatSelection"]
         }
-	],
+    ],
     // vim中英文输入法切换设置 此处为win10 + scoop安装im-select的配置方案 xxx填上用户名
     "vim.autoSwitchInputMethod.enable": true,
     "vim.autoSwitchInputMethod.defaultIM": "1033",  // 默认英文输入法-即normal模式下需要的输入法 
