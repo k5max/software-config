@@ -3,7 +3,6 @@
 ## 外观
 
 - 主题：One Dark Pro
-
 - 图标：vscode-icons
 
 - 字体：Fira Code, Source Code Pro, 'Courier New', monospace
