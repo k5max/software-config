@@ -1,8 +1,8 @@
 {
     // Visual
     "workbench.startupEditor": "none",
-    "workbench.iconTheme": "vscode-icons",
     "workbench.colorTheme": "One Dark Pro",
+    "workbench.iconTheme": "vscode-icons",
     "zenMode.hideLineNumbers": false,
     // Editor
     "editor.fontFamily": "Fira Code, Source Code Pro, 'Courier New', monospace",
@@ -26,7 +26,7 @@
         "editor.tabSize": 2,
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    // vim settings start
+    // Vim settings start
     "vim.useCtrlKeys": true,
     "vim.useSystemClipboard": true,
     "vim.leader": "<space>",
@@ -162,9 +162,9 @@
             "commands": ["editor.action.formatSelection"]
         }
     ],
-    // vim中英文输入法切换设置 此处为win10 + scoop安装im-select的配置方案 xxx填上用户名
+    // Vim 中英文输入法切换设置 此处为win10 + scoop安装im-select的配置方案 xxx填上用户名
     "vim.autoSwitchInputMethod.enable": true,
     "vim.autoSwitchInputMethod.defaultIM": "1033",  // 默认英文输入法-即normal模式下需要的输入法 
-    "vim.autoSwitchInputMethod.obtainIMCmd": "C:/Users/xxx/scoop/apps/im-select/current/im-select.exe",
-    "vim.autoSwitchInputMethod.switchIMCmd": "C:/Users/xxx/scoop/apps/im-select/current/im-select.exe {im}"
+    "vim.autoSwitchInputMethod.obtainIMCmd": "C:/Users/liwu/scoop/apps/im-select/current/im-select.exe",
+    "vim.autoSwitchInputMethod.switchIMCmd": "C:/Users/liwu/scoop/apps/im-select/current/im-select.exe {im}"
 }
