@@ -99,7 +99,7 @@
 	{ // delete file or folder
 		"key": "d",
 		"command": "deleteFile",
-		"when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+		"when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
 	},
 	{ // rename file
 		"key": "r",
@@ -116,6 +116,12 @@
 	{
 		"command": "filesExplorer.paste",
 		"key": "p",
+		"when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+	},
+	// cut file
+	{
+		"command": "filesExplorer.cut",
+		"key": "x",
 		"when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
 	},
 	{ // disable old style rename shortcut

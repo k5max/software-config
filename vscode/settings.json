@@ -4,19 +4,30 @@
     "workbench.colorTheme": "One Dark Pro",
     "workbench.iconTheme": "vscode-icons",
     "zenMode.hideLineNumbers": false,
+    // "window.menuBarVisibility": "hidden",   // 隐藏顶部菜单栏
+    "workbench.statusBar.visible": true,   // 开启底部状态栏
+    "workbench.activityBar.visible": false, // 隐藏左侧工具栏
+    // // 以下三行是为了隐藏滚动栏
+    // "editor.scrollbar.horizontal": "hidden",
+    // "editor.scrollbar.vertical": "hidden",
+    // "editor.scrollbar.verticalScrollbarSize": 0,
+    
     // Editor
     "editor.fontFamily": "Fira Code, Source Code Pro, 'Courier New', monospace",
-    "editor.fontLigatures": true,
-    "editor.detectIndentation": true, // default true
-    "editor.insertSpaces": true, // default true
-    "editor.linkedEditing": true, // 符号同步修改（比如html/xml标签）
+    "editor.fontLigatures": true, // 开启字体连字
+    "editor.detectIndentation": true, // 开启editor的自动检测缩进
     "editor.tabSize": 4, // default 4
+    "editor.insertSpaces": true, // 使用空格缩进，配合tabsize可以将tab转为指定空格数
+    "editor.linkedEditing": true, // 符号同步修改（比如html/xml标签）
     "editor.lineNumbers": "relative", //使用相对行号
-    "editor.cursorBlinking": "solid",
-    "editor.minimap.enabled": false,
-    "files.autoSave": "afterDelay",
-    "explorer.confirmDelete": true, // 删除确认提示
-    "explorer.confirmDragAndDrop": true, // 拖放确认提示
+    "editor.cursorBlinking": "solid", // 设置光标样式 smooth样式也可以
+    "editor.cursorSmoothCaretAnimation": "on", // 开启鼠标平滑动画效果
+    "editor.minimap.enabled": false, // 关闭缩略图（vim下开启影响美观）
+    "editor.occurrencesHighlight": false, // 关闭相同单词匹配高亮显示（vim下开启影响视觉）
+    "files.autoSave": "afterDelay", // 文件自动保存
+    "explorer.confirmDelete": false, // 关闭确认删除提示
+    "explorer.confirmDragAndDrop": false, // 关闭确认拖放提示
+    
     // Code style
     "[javascript]": {
         "editor.tabSize": 2,
@@ -26,6 +37,13 @@
         "editor.tabSize": 2,
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
+
+    // Cit config
+    // git 不要弹窗确认是否同意 sync
+    "git.confirmSync": false,
+    
+    /** Extension configs **/
+
     // Vim settings start
     "vim.useCtrlKeys": true,
     "vim.useSystemClipboard": true,
