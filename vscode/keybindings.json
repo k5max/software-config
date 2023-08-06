@@ -1,7 +1,9 @@
 // 将键绑定放在此文件中以覆盖默认值auto[]
 [
-	// todo 1.需要添加一些git相关快捷键；2.需要配置gd gD gh gi相关lsp的键；3.需要配置关闭窗口的快捷键
-
+	{ // quit panel
+		"key": "alt+q",
+		"command": "workbench.action.closePanel"
+	},
 	{ // make cursor back to editor => 主要解决terminal 和 pane之间的跳转问题
 		"key": "ctrl+k",
 		"command": "workbench.action.focusActiveEditorGroup",

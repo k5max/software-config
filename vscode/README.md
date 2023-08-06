@@ -2,7 +2,7 @@
 
 ## 前言
 
-本套 VS Code 配置是以 `VSCodeVim`  插件为核心，建立的一套全键盘流方案。
+本套 VS Code 配置是以 `VSCodeVim`  插件为核心，建立的一套全键盘流方案。使用效果跟 NeoVim 存在 90% 以上的类似。
 
 ## 现有插件
 
@@ -42,8 +42,6 @@
 - 主题：One Dark Pro
 - 图标：vscode-icons
 - 字体：Fira Code, Source Code Pro, 'Courier New', monospace
-
-
 
 ## 设置
 
@@ -100,7 +98,7 @@ VSCodeVim 插件由于是一款模拟器，所以它的配置文件是放在sett
 
 此方案是配置 Vim 全键盘流后的按键映射方案，更多关于 Vim 配置请查阅 [VSCodeVim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim)
 
-基本上所有用leader键的地方都是配置在settings.json 中vim配置部分，其他通过keybingds.json来模拟。没有改动的按键映射就沿用VS Code默认的。
+基本上所有用leader键的地方都是配置在settings.json 中vim配置部分，其他大部分通过keybingds.json来模拟。没有改动的按键映射就沿用VS Code默认的。
 
 #### Vim 不同模式
 
@@ -130,6 +128,15 @@ VSCodeVim 插件由于是一款模拟器，所以它的配置文件是放在sett
 | 增加缩进                                                     | >           | editor.action.indentLines                | visual | settings.json    |
 | 减小缩进                                                     | <           | editor.action.outdentLines               | visual | settings.json    |
 | 选中片段格式化                                               | \<leader>f  | editor.action.formatSelection            | visual | settings.json    |
+| 查看hover提示                                                | gh          | editor.action.showDefinitionPreviewHover | normal | settings.json    |
+| 跳转到definition                                             | gd          | editor.action.revealDefinition           | normal | settings.json    |
+| 跳转到declaration                                            | gD          | editor.action.revealDeclaration          | normal | settings.json    |
+| 跳转到implemention                                           | gi          | editor.action.goToImplementation         | normal | settings.json    |
+| 查看references                                               | gr          | editor.action.goToReferences             | normal | settings.json    |
+| 以列表视图查看所有references                                 | gR          | references-view.findReferences           | normal | settings.json    |
+| 打开错误信息列表                                             | \<leader>q  | workbench.actions.view.problems          | normal | settings.json    |
+| 跳到下一次错误                                               | [d          | editor.action.marker.next                | normal | settings.json    |
+| 跳到上一次错误                                               | ]d          | editor.action.marker.prev                | normal | settings.json    |
 
 
 
@@ -140,6 +147,16 @@ VSCodeVim 插件由于是一款模拟器，所以它的配置文件是放在sett
 ```json
 // 将键绑定放在此文件中以覆盖默认值auto[]
 [
+	{ // quit panel
+		"key": "alt+q",
+		"command": "workbench.action.closePanel"
+	},
+	{ // make cursor back to editor => 主要解决terminal 和 pane之间的跳转问题
+		"key": "ctrl+k",
+		"command": "workbench.action.focusActiveEditorGroup",
+		"when": "panelFocus && activePanel"
+	},
+
 	// -----vim settings start------
     { // window move down
 		"key": "ctrl+j",
@@ -149,7 +166,7 @@ VSCodeVim 插件由于是一款模拟器，所以它的配置文件是放在sett
 			"after": [
 				"<c-w>",
 				"j"
-			],
+			]
 		}
 	},
 	{ // window move up
@@ -160,7 +177,7 @@ VSCodeVim 插件由于是一款模拟器，所以它的配置文件是放在sett
 			"after": [
 				"<c-w>",
 				"k"
-			],
+			]
 		}
 	},
 	{ // window move left
@@ -171,7 +188,7 @@ VSCodeVim 插件由于是一款模拟器，所以它的配置文件是放在sett
 			"after": [
 				"<c-w>",
 				"h"
-			],
+			]
 		}
 	},
 	{ // window move right
@@ -182,7 +199,7 @@ VSCodeVim 插件由于是一款模拟器，所以它的配置文件是放在sett
 			"after": [
 				"<c-w>",
 				"l"
-			],
+			]
 		}
 	},
 	// -----vim settings end------
@@ -231,7 +248,7 @@ VSCodeVim 插件由于是一款模拟器，所以它的配置文件是放在sett
 	{ // delete file or folder
 		"key": "d",
 		"command": "deleteFile",
-		"when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+		"when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
 	},
 	{ // rename file
 		"key": "r",
@@ -248,6 +265,12 @@ VSCodeVim 插件由于是一款模拟器，所以它的配置文件是放在sett
 	{
 		"command": "filesExplorer.paste",
 		"key": "p",
+		"when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+	},
+	// cut file
+	{
+		"command": "filesExplorer.cut",
+		"key": "x",
 		"when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
 	},
 	{ // disable old style rename shortcut

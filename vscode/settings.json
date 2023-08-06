@@ -140,12 +140,80 @@
 			"before": ["<leader>", "g"],
 			"commands": ["workbench.view.scm"]
 		},
+        // 关闭当前editor
+        {
+            "before": ["<leader>", "b", "c"],
+            "commands": ["workbench.action.closeActiveEditor"]
+        },
+        // 关闭所有左侧editor
+        {
+            "before": ["<leader>", "b", "h"],
+            "commands": ["workbench.action.closeEditorsToTheLeft"]
+        },
+        // 关闭所有右侧editor
+        {
+            "before": ["<leader>", "b", "l"],
+            "commands": ["workbench.action.closeEditorsToTheRight"]
+        },
+        // 打开下一个editor
+        {
+            "before": ["<leader>", "b", "j"],
+            "commands": ["workbench.action.nextEditor"]
+        },
+        // 打开上一个editor
+        {
+            "before": ["<leader>", "b", "k"],
+            "commands": ["workbench.action.previousEditor"]
+        },
+        // 查看hover
+        {
+            "before": ["g", "h"],
+            "commands": ["editor.action.showDefinitionPreviewHover"]
+        },
+        // 跳转到definition
+        {
+            "before": ["g", "d"],
+            "commands": ["editor.action.revealDefinition"]
+        },
+        // 跳转到declaration
+        {
+            "before": ["g", "D"],
+            "commands": ["editor.action.revealDeclaration"]
+        },
+        // 跳转到implemention
+        {
+            "before": ["g", "i"],
+            "commands": ["editor.action.goToImplementation"]
+        },
+        // 查看references
+        {
+            "before": ["g", "r"],
+            "commands": ["editor.action.goToReferences"]
+        },
+        // 查看所有references，以一个列表打开
+        {
+            "before": ["g", "R"],
+            "commands": ["references-view.findReferences"]
+        },
         // 打开错误信息列表
         {
             "before": ["<leader>", "q"],
             "commands": ["workbench.actions.view.problems"]
+        },
+        // 跳到下一次错误
+        {
+            "before": ["[", "d"],
+            "commands": ["editor.action.marker.next"]
+        },
+        // 跳到上一次错误
+        {
+            "before": ["]", "d"],
+            "commands": ["editor.action.marker.prev"]
         }
-        // {
+
+	    // todo 需要添加一些git相关快捷键 <leader>hj <leader>hk ...
+
+       // {
 		// 	"before": [
 		// 		"<leader>",
 		// 		"u"
