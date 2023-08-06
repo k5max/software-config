@@ -5,8 +5,8 @@
     "workbench.iconTheme": "vscode-icons",
     "zenMode.hideLineNumbers": false,
     // "window.menuBarVisibility": "hidden",   // 隐藏顶部菜单栏
-    "workbench.statusBar.visible": true,   // 开启底部状态栏
-    "workbench.activityBar.visible": false, // 隐藏左侧工具栏
+    "workbench.statusBar.visible": true,   // 底部状态栏显示设置
+    "workbench.activityBar.visible": true, // 工具栏显示设置
     // // 以下三行是为了隐藏滚动栏
     // "editor.scrollbar.horizontal": "hidden",
     // "editor.scrollbar.vertical": "hidden",
@@ -24,10 +24,11 @@
     "editor.cursorSmoothCaretAnimation": "on", // 开启鼠标平滑动画效果
     "editor.minimap.enabled": false, // 关闭缩略图（vim下开启影响美观）
     "editor.occurrencesHighlight": false, // 关闭相同单词匹配高亮显示（vim下开启影响视觉）
+    "editor.stickyScroll.enabled": true, // 开启粘性滚动
     "files.autoSave": "afterDelay", // 文件自动保存
     "explorer.confirmDelete": false, // 关闭确认删除提示
     "explorer.confirmDragAndDrop": false, // 关闭确认拖放提示
-    
+     
     // Code style
     "[javascript]": {
         "editor.tabSize": 2,

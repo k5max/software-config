@@ -1,5 +1,42 @@
 # VS Code 设置
 
+## 前言
+
+本套 VS Code 配置是以 `VSCodeVim`  插件为核心，建立的一套全键盘流方案。
+
+## 现有插件
+
+按照依赖程度优先级
+
+| 插件名称              | 描述                                                         | 补充说明        |
+| --------------------- | ------------------------------------------------------------ | --------------- |
+| One Dark Pro          | 主题插件                                                     | 颜值党排第一    |
+| vscode-icons          | 为文件添加炫酷图标                                           | 颜值党排第一    |
+| VSCodeVim             | Vim 模拟                                                     | 全键盘流核心    |
+| Remote Development    | 远程开发扩展包（包含四个扩展：Remote - SSH、Remote - Tunnels、Dev Containers、WSL） | 远程开发必备    |
+| Project Manager       | 管理多个项目                                                 |                 |
+| GitLens               | Git 源代码管理工具                                           | 增强原有git能力 |
+| Commit Message Editor | Git提交信息规范                                              | 代码提交规范    |
+| Git Graph             | Git 提交图                                                   |                 |
+| Bookmarks             | 书签功能                                                     |                 |
+| REST Client           | REST 客户端                                                  |                 |
+| Docker                | 提供Docker支持                                               |                 |
+| Live Share            | 代码实时协作工具                                             |                 |
+
+| 插件名称                       | 描述                                                         | 补充说明 |
+| ------------------------------ | ------------------------------------------------------------ | -------- |
+| HTML CSS Support               | HTML CSS 智能提示                                            |          |
+| JavaScript (ES6) code snippets | ES6语法下的JavaScript代码片段支持                            |          |
+| Vetur                          | Vue 2的语言支持                                              |          |
+| Vue Language Features (Volar)  | Vue 3的语言支持                                              |          |
+| Prettier                       | 代码格式化                                                   |          |
+| ESLint                         | ESLint规范                                                   |          |
+| Python                         | 智能感知(Pylance)、检测、调试(多线程、远程)、Jupyter笔记本、代码格式化、重构、单元测试等 |          |
+
+| 插件名称       | 描述                                                         | 补充说明     |
+| -------------- | ------------------------------------------------------------ | ------------ |
+| Python（套件） | 智能感知(Pylance)、检测、调试(多线程、远程)、Jupyter笔记本、代码格式化、重构、单元测试等 | 写Python必备 |
+
 ## 外观
 
 - 主题：One Dark Pro
@@ -8,13 +45,13 @@
 
 
 
-## 基本
+## 设置
 
 - 开启字体连字
 - 开启linkedEditing（取代auto rename tag插件）
 - 关闭缩略图（搭配Vim使用）
 - 开启文件自动保存
-- 关闭光标闪缩
+- 开启光标平滑移动效果
 - 指定默认tab对应空格数，需自定义其余自行配置
 - 开启相对行号（搭配Vim使用）
 - 将大纲添加到AuxiliaryBar（搭配Vim使用）
@@ -23,11 +60,13 @@
 
 
 
-## Vim 全键盘流
+## 全键盘流
 
-插件基本设置 + 按键重新映射
+VSCodeVim 插件由于是一款模拟器，所以它的配置文件是放在settings.json文件中，而不是vimrc文件中，个人也并不推荐将配置放在vimrc文件中，因为这会导致多端同步变的复杂，尽管这款插件可以支持从vimrc文件中读取配置。
 
-### VSCodeVim 部分基础设置
+实现全键盘流，理念是**基本设置 + 按键重新映射**，涉及改动 `settings.json` 和 `keybings.json` 。
+
+### 基础设置
 
 ```json
 "vim.useCtrlKeys": true, // 启用 Vim ctrl 键覆盖常见的 VS Code 操作，如复制、粘贴、查找等。
@@ -60,10 +99,6 @@
 ### 按键重新映射
 
 此方案是配置 Vim 全键盘流后的按键映射方案，更多关于 Vim 配置请查阅 [VSCodeVim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim)
-
->It is highly recommended to remap keys using vim commands like `"vim.normalModeKeyBindings"` ([see here](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim#key-remapping)). But sometimes the usual remapping commands are not enough as they do not support every key combinations possible (for example `Alt+key` or `Ctrl+Shift+key`). In this case it is possible to create new keybindings inside [keybindings.json](https://code.visualstudio.com/docs/getstarted/keybindings#_keyboard-shortcuts-reference). To do so: open up keybindings.json in VSCode using `CTRL+SHIFT+P` and select `Open keyboard shortcuts (JSON)`.
-
-
 
 基本上所有用leader键的地方都是配置在settings.json 中vim配置部分，其他通过keybingds.json来模拟。没有改动的按键映射就沿用VS Code默认的。
 
@@ -100,10 +135,11 @@
 
 #### 更复杂的组合键
 
+>It is highly recommended to remap keys using vim commands like `"vim.normalModeKeyBindings"` ([see here](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim#key-remapping)). But sometimes the usual remapping commands are not enough as they do not support every key combinations possible (for example `Alt+key` or `Ctrl+Shift+key`). In this case it is possible to create new keybindings inside [keybindings.json](https://code.visualstudio.com/docs/getstarted/keybindings#_keyboard-shortcuts-reference). To do so: open up keybindings.json in VSCode using `CTRL+SHIFT+P` and select `Open keyboard shortcuts (JSON)`.
+
 ```json
 // 将键绑定放在此文件中以覆盖默认值auto[]
 [
-	// todo 1.需要解决terminal 和 pane之间的跳转问题；2.需要添加一些git相关快捷键；3.需要配置gd gD gh gi相关lsp的键
 	// -----vim settings start------
     { // window move down
 		"key": "ctrl+j",
@@ -274,4 +310,25 @@
 	}
 ]
 ```
+
+
+
+## 自动切换输入法
+
+在使用 VSCode Vim 编写代码时，经常会在 normal 和 insert 两种模式中切换，但是如果刚刚在 insert 模式下输入完中文，这时按 esc 切换到 normal 模式，无法直接输入指令，因为此时输入法还处于中文状态，需要先按 shift 切换到英文才可以。为了切换到 `normal` 模式时输入法能自动切换为英文状态，可以通过 im-select 来实现。
+
+1. 安装 [im-select](https://github.com/daipeihust/im-select)
+2. 将下面部分添加到 `VS Code` 的 `settings.json`
+
+```json
+// 开启自动切换输入法
+"vim.autoSwitchInputMethod.enable": true,
+// 设置默认输入法，值获取方法：切换到系统的英文输入法，在命令行输入 im-select 就可以获取当前输入法的值了
+"vim.autoSwitchInputMethod.defaultIM": "xxx", // xxx 表示默认输入法或者输入法编号
+// im-select 安装路径，在命令行输入 which im-select 获取
+"vim.autoSwitchInputMethod.obtainIMCmd": "xxx", // xxx表示安装路径
+"vim.autoSwitchInputMethod.switchIMCmd": "xxx {im}"
+```
+
+
 
