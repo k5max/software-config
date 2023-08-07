@@ -62,7 +62,7 @@
 
 VSCodeVim 插件由于是一款模拟器，所以它的配置文件是放在settings.json文件中，而不是vimrc文件中，个人也并不推荐将配置放在vimrc文件中，因为这会导致多端同步变的复杂，尽管这款插件可以支持从vimrc文件中读取配置。
 
-实现全键盘流，理念是**基本设置 + 按键重新映射**，涉及改动 `settings.json` 和 `keybings.json` 。
+实现全键盘流，理念是**基本设置 + 按键重新映射 + 模拟插件**，涉及改动 `settings.json` 和 `keybings.json` 。
 
 ### 基础设置
 
@@ -134,6 +134,9 @@ VSCodeVim 插件由于是一款模拟器，所以它的配置文件是放在sett
 | 跳转到implemention                                           | gi          | editor.action.goToImplementation         | normal | settings.json    |
 | 查看references                                               | gr          | editor.action.goToReferences             | normal | settings.json    |
 | 以列表视图查看所有references                                 | gR          | references-view.findReferences           | normal | settings.json    |
+| 跳转到type_definition                                        | \<leader>D  | editor.action.goToTypeDefinition         | normal | settings.json    |
+| rename symbol                                                | \<leader>rn | editor.action.rename                     | normal | settings.json    |
+| quickFix (code action)                                       | \<leader>ca | editor.action.quickFix                   | normal | settings.json    |
 | 打开错误信息列表                                             | \<leader>q  | workbench.actions.view.problems          | normal | settings.json    |
 | 跳到下一次错误                                               | [d          | editor.action.marker.next                | normal | settings.json    |
 | 跳到上一次错误                                               | ]d          | editor.action.marker.prev                | normal | settings.json    |
@@ -145,13 +148,16 @@ VSCodeVim 插件由于是一款模拟器，所以它的配置文件是放在sett
 >It is highly recommended to remap keys using vim commands like `"vim.normalModeKeyBindings"` ([see here](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim#key-remapping)). But sometimes the usual remapping commands are not enough as they do not support every key combinations possible (for example `Alt+key` or `Ctrl+Shift+key`). In this case it is possible to create new keybindings inside [keybindings.json](https://code.visualstudio.com/docs/getstarted/keybindings#_keyboard-shortcuts-reference). To do so: open up keybindings.json in VSCode using `CTRL+SHIFT+P` and select `Open keyboard shortcuts (JSON)`.
 
 ```json
-// 将键绑定放在此文件中以覆盖默认值auto[]
 [
-	{ // quit panel
+	{ // activitybar visibility
+		"key": "alt+a",
+		"command": "workbench.action.toggleActivityBarVisibility"
+	},
+	{ // quit panel (except terminal)
 		"key": "alt+q",
 		"command": "workbench.action.closePanel"
 	},
-	{ // make cursor back to editor => 主要解决terminal 和 pane之间的跳转问题
+	{ // make cursor back to editor => solve the jump problem between terminal and editor
 		"key": "ctrl+k",
 		"command": "workbench.action.focusActiveEditorGroup",
 		"when": "panelFocus && activePanel"
@@ -324,6 +330,16 @@ VSCodeVim 插件由于是一款模拟器，所以它的配置文件是放在sett
 		"command": "list.focusUp",
 		"when": "panelFocus && activePanel == 'workbench.panel.markers' "
 	},
+	{ // move down at code action
+  		"key": "ctrl+j",
+  		"command": "selectNextCodeAction",
+  		"when": "codeActionMenuVisible"
+	},
+	{ // move up at code action
+  		"key": "ctrl+k",
+  		"command": "selectPrevCodeAction",
+  		"when": "codeActionMenuVisible"
+	},
 	// -----suggest item end------
 
 	{ // enter search bar
@@ -333,6 +349,23 @@ VSCodeVim 插件由于是一款模拟器，所以它的配置文件是放在sett
 	}
 ]
 ```
+
+
+
+### 模拟插件
+
+默认都是关闭
+
+开启
+
+- vim-commentary
+- vim-sneak
+
+关闭
+
+- vim-airline
+- vim-easymotion
+- vim-surround
 
 
 

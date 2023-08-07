@@ -1,10 +1,13 @@
-// 将键绑定放在此文件中以覆盖默认值auto[]
 [
-	{ // quit panel
+	{ // activitybar visibility
+		"key": "alt+a",
+		"command": "workbench.action.toggleActivityBarVisibility"
+	},
+	{ // quit panel (except terminal)
 		"key": "alt+q",
 		"command": "workbench.action.closePanel"
 	},
-	{ // make cursor back to editor => 主要解决terminal 和 pane之间的跳转问题
+	{ // make cursor back to editor => solve the jump problem between terminal and editor
 		"key": "ctrl+k",
 		"command": "workbench.action.focusActiveEditorGroup",
 		"when": "panelFocus && activePanel"
@@ -176,6 +179,16 @@
 		"key": "ctrl+shift+k",
 		"command": "list.focusUp",
 		"when": "panelFocus && activePanel == 'workbench.panel.markers' "
+	},
+	{ // move down at code action
+  		"key": "ctrl+j",
+  		"command": "selectNextCodeAction",
+  		"when": "codeActionMenuVisible"
+	},
+	{ // move up at code action
+  		"key": "ctrl+k",
+  		"command": "selectPrevCodeAction",
+  		"when": "codeActionMenuVisible"
 	},
 	// -----suggest item end------
 
