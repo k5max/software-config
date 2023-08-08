@@ -216,12 +216,12 @@
         },
         // 跳到下一次错误
         {
-            "before": ["[", "d"],
+            "before": ["]", "d"],
             "commands": ["editor.action.marker.next"]
         },
         // 跳到上一次错误
         {
-            "before": ["]", "d"],
+            "before": ["[", "d"],
             "commands": ["editor.action.marker.prev"]
         },
 

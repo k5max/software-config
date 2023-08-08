@@ -138,8 +138,8 @@ VSCodeVim 插件由于是一款模拟器，所以它的配置文件是放在sett
 | rename symbol                                                | \<leader>rn | editor.action.rename                     | normal | settings.json    |
 | quickFix (code action)                                       | \<leader>ca | editor.action.quickFix                   | normal | settings.json    |
 | 打开错误信息列表                                             | \<leader>q  | workbench.actions.view.problems          | normal | settings.json    |
-| 跳到下一次错误                                               | [d          | editor.action.marker.next                | normal | settings.json    |
-| 跳到上一次错误                                               | ]d          | editor.action.marker.prev                | normal | settings.json    |
+| 跳到下一次错误                                               | ]d          | editor.action.marker.next                | normal | settings.json    |
+| 跳到上一次错误                                               | [d          | editor.action.marker.prev                | normal | settings.json    |
 
 
 
