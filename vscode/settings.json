@@ -5,8 +5,7 @@
     "workbench.iconTheme": "vscode-icons",
     "zenMode.hideLineNumbers": false,
     // "window.menuBarVisibility": "hidden",   // 隐藏顶部菜单栏
-    "workbench.statusBar.visible": true, // 状态栏显示设置
-    "workbench.activityBar.visible": false, // 工具栏显示设置
+    "workbench.statusBar.visible": true, // 工具栏显示设置
     // // 以下三行是为了隐藏滚动栏
     // "editor.scrollbar.horizontal": "hidden",
     // "editor.scrollbar.vertical": "hidden",
@@ -205,6 +204,7 @@
             "before": ["<leader>", "r", "n"],
             "commands": ["editor.action.rename"]
         },
+        // quickFix(code action) 
         {
             "before": ["<leader>", "c", "a"],
             "commands": ["editor.action.quickFix"]
@@ -223,28 +223,8 @@
         {
             "before": ["[", "d"],
             "commands": ["editor.action.marker.prev"]
-        },
-
-	    // todo 需要添加一些git相关快捷键 <leader>hj <leader>hk ...
-
-       // {
-		// 	"before": [
-		// 		"<leader>",
-		// 		"u"
-		// 	],
-		// 	"commands": [
-		// 		"editor.action.referenceSearch.trigger"
-		// 	]
-		// },
-        // {
-		// 	"before": [
-		// 		"<leader>",
-		// 		"U"
-		// 	],
-		// 	"commands": [
-		// 		"references-view.findReferences"
-		// 	]
-		// },
+        }
+        // vscode git 相关不太好模拟，这里就不处理了
     ],
     "vim.visualModeKeyBindings": [
 		// repeatly indent in visual mode
