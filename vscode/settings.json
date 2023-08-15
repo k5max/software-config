@@ -171,12 +171,12 @@
         },
         // 跳转到definition
         {
-            "before": ["g", "d"],
+            "before": ["g", "D"],
             "commands": ["editor.action.revealDefinition"]
         },
         // 跳转到declaration
         {
-            "before": ["g", "D"],
+            "before": ["g", "d"],
             "commands": ["editor.action.revealDeclaration"]
         },
         // 跳转到implemention
