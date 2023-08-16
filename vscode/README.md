@@ -140,6 +140,11 @@ VSCodeVim 插件由于是一款模拟器，所以它的配置文件是放在sett
 | 打开错误信息列表                                             | \<leader>q  | workbench.actions.view.problems          | normal | settings.json    |
 | 跳到下一次错误                                               | ]d          | editor.action.marker.next                | normal | settings.json    |
 | 跳到上一次错误                                               | [d          | editor.action.marker.prev                | normal | settings.json    |
+| 关闭当前editor                                               | \<leader>bc | workbench.action.closeActiveEditor       | normal | settings.json    |
+| 关闭所有左侧editor                                           | \<leader>bh | workbench.action.closeEditorsToTheLeft   | normal | settings.json    |
+| 关闭所有右侧editor                                           | \<leader>bl | workbench.action.closeEditorsToTheRight  | normal | settings.json    |
+| 打开下一个editor                                             | \<leader>bj | workbench.action.nextEditor              | normal | settings.json    |
+| 打开上一个editor                                             | \<leader>bk | workbench.action.previousEditor          | normal | settings.json    |
 
 
 
