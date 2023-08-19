@@ -129,8 +129,8 @@ VSCodeVim 插件由于是一款模拟器，所以它的配置文件是放在sett
 | 减小缩进                                                     | <           | editor.action.outdentLines               | visual | settings.json    |
 | 选中片段格式化                                               | \<leader>f  | editor.action.formatSelection            | visual | settings.json    |
 | 查看hover提示                                                | gh          | editor.action.showDefinitionPreviewHover | normal | settings.json    |
-| 跳转到definition                                             | gD          | editor.action.revealDefinition           | normal | settings.json    |
-| 跳转到declaration                                            | gd          | editor.action.revealDeclaration          | normal | settings.json    |
+| 跳转到definition                                             | gd          | editor.action.revealDefinition           | normal | settings.json    |
+| 跳转到declaration                                            | gD          | editor.action.revealDeclaration          | normal | settings.json    |
 | 跳转到implemention                                           | gi          | editor.action.goToImplementation         | normal | settings.json    |
 | 查看references                                               | gr          | editor.action.goToReferences             | normal | settings.json    |
 | 以列表视图查看所有references                                 | gR          | references-view.findReferences           | normal | settings.json    |
