@@ -55,7 +55,6 @@
     "vim.highlightedyank.color": "rgba(252, 93, 124, 0.7)",
     "vim.sneak": true,
     "vim.easymotion": false,
-    "vim.surround": false,
     "vim.handleKeys": {
 		"<C-f>": true,
         "<C-b>": true,
