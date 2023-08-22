@@ -54,6 +54,7 @@
     "vim.highlightedyank.enable": true,
     "vim.highlightedyank.color": "rgba(252, 93, 124, 0.7)",
     "vim.sneak": true,
+    "vim.surround": true,
     "vim.easymotion": false,
     "vim.handleKeys": {
 		"<C-f>": true,
@@ -222,8 +223,50 @@
         {
             "before": ["[", "d"],
             "commands": ["editor.action.marker.prev"]
-        }
+        },
         // vscode git 相关不太好模拟，这里就不处理了
+
+        // 搭配Bookmarks插件
+        // 书签开关
+        {
+            "before": ["m", "m"],
+            "commands": ["bookmarks.toggle"]
+        },
+        // 带label书签开关
+        {
+            "before": ["m", "i"],
+            "commands": ["bookmarks.toggleLabeled"]
+        },
+        // 列出当前文件的书签
+        {
+            "before": ["<leader>", "f", "m"],
+            "commands": ["bookmarks.list"]
+        },
+        // 列出所有文件的书签
+        {
+            "before": ["<leader>", "f", "M"],
+            "commands": ["bookmarks.listFromAllFiles"]
+        },
+        // 跳到下一个书签
+        {
+            "before": ["m", "n"],
+            "commands": ["bookmarks.jumpToNext"]
+        },
+        // 跳到上一个书签
+        {
+            "before": ["m", "p"],
+            "commands": ["bookmarks.jumpToPrevious"]
+        },
+        // 删除当前文件的书签
+        {
+            "before": ["m", "c"],
+            "commands": ["bookmarks.clear"]
+        },
+        // 删除所有文件的书签
+        {
+            "before": ["m", "x"],
+            "commands": ["bookmarks.clearFromAllFiles"]
+        }
     ],
     "vim.visualModeKeyBindings": [
 		// repeatly indent in visual mode

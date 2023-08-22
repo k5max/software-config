@@ -124,7 +124,12 @@ VSCodeVim 插件由于是一款模拟器，所以它的配置文件是放在sett
 | 全局搜索内容 以search editor 打开                            | \<leader>fg | search.action.openEditor                 | normal | settings.json    |
 | 全局搜索内容 默认窗口打开                                    | \<leader>fG | workbench.view.search                    | normal | settings.json    |
 | 打开版本控制（使用的很少，实际被lazygit取代）                | \<leader>g  | workbench.view.scm                       | normal | settings.json    |
+| 关闭当前editor                                               | \<leader>bc | workbench.action.closeActiveEditor       | normal | settings.json    |
+| 关闭所有左侧editor                                           | \<leader>bh | workbench.action.closeEditorsToTheLeft   | normal | settings.json    |
+| 关闭所有右侧editor                                           | \<leader>bl | workbench.action.closeEditorsToTheRight  | normal | settings.json    |
 | 打开错误信息列表                                             | \<leader>q  | workbench.actions.view.problems          | normal | settings.json    |
+| 打开下一个editor                                             | \<leader>bj | workbench.action.nextEditor              | normal | settings.json    |
+| 打开上一个editor                                             | \<leader>bk | workbench.action.previousEditor          | normal | settings.json    |
 | 增加缩进                                                     | >           | editor.action.indentLines                | visual | settings.json    |
 | 减小缩进                                                     | <           | editor.action.outdentLines               | visual | settings.json    |
 | 选中片段格式化                                               | \<leader>f  | editor.action.formatSelection            | visual | settings.json    |
@@ -140,11 +145,14 @@ VSCodeVim 插件由于是一款模拟器，所以它的配置文件是放在sett
 | 打开错误信息列表                                             | \<leader>q  | workbench.actions.view.problems          | normal | settings.json    |
 | 跳到下一次错误                                               | ]d          | editor.action.marker.next                | normal | settings.json    |
 | 跳到上一次错误                                               | [d          | editor.action.marker.prev                | normal | settings.json    |
-| 关闭当前editor                                               | \<leader>bc | workbench.action.closeActiveEditor       | normal | settings.json    |
-| 关闭所有左侧editor                                           | \<leader>bh | workbench.action.closeEditorsToTheLeft   | normal | settings.json    |
-| 关闭所有右侧editor                                           | \<leader>bl | workbench.action.closeEditorsToTheRight  | normal | settings.json    |
-| 打开下一个editor                                             | \<leader>bj | workbench.action.nextEditor              | normal | settings.json    |
-| 打开上一个editor                                             | \<leader>bk | workbench.action.previousEditor          | normal | settings.json    |
+| 书签开关                                                     | mm          | bookmarks.toggle                         | normal | settings.json    |
+| 带label书签开关                                              | mi          | bookmarks.toggleLabeled                  | normal | settings.json    |
+| 列出当前文件的书签                                           | \<leader>fm | bookmarks.list                           | normal | settings.json    |
+| 列出所有文件的书签                                           | \<leader>fM | bookmarks.listFromAllFiles               | normal | settings.json    |
+| 跳到下一个书签                                               | mn          | bookmarks.jumpToNext                     | normal | settings.json    |
+| 跳到上一个书签                                               | mp          | bookmarks.jumpToPrevious                 | normal | settings.json    |
+| 删除当前文件的书签                                           | mc          | bookmarks.clear                          | normal | settings.json    |
+| 删除所有文件的书签                                           | mx          | bookmarks.clearFromAllFiles              | normal | settings.json    |
 
 
 
