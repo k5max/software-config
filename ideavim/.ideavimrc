@@ -1,37 +1,126 @@
-" 行号设置
-set nu
-set relativenumber
-
-" set leader key
 let mapleader=" "
 let g:mapleader=" "
 
-" 共享系统剪贴板
-set clipboard=unnamed
+set showmode
+set number
+set relativenumber
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set history=1000
+set clipboard^=unnamedplus,unnamed
 
-" === 快捷键 ===
-" 窗口分屏
-nnoremap <leader>sv <C-w>v
-nnoremap <leader>sh <C-w>s
-nnoremap <leader>sc <C-w>c
-" hjkl切换窗口
-nnoremap <C-h> <C-W>h
-nnoremap <C-l> <C-W>l
-nnoremap <C-j> <C-W>j
-nnoremap <C-k> <C-W>k
-nnoremap <C-t> <C-W>t
-" 调整窗口大小
-nnoremap <leader>h <C-W>5<
-nnoremap <leader>l <C-W>5>
-nnoremap <leader>j <C-W>5-
-nnoremap <leader>k <C-W>5+
-
-" 取消搜索高亮
-" 上下移动文本
-
-" === 插件 ===
-" 启用 ideavim-sneak 插件
+" === Plugins ===
+Plug 'preservim/nerdtree'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'machakann/vim-highlightedyank'
 set sneak
-" 搭配 IdeaVimExtension 使用，解决自动切换输入法
-set keep-english-in-normal " 开启输入法自动切换功能
-set keep-english-in-normal-and-restore-in-insert " 回到insert模式时恢复输入法
+
+" 搭配 IdeaVimExtension 使用，解决自动切换中英输入法
+set keep-english-in-normal-and-restore-in-insert " normal模式英文，回到insert模式时恢复输入法
+
+" IdeaVim tips and tricks
+set ideajoin
+set ideamarks
+set clipboard+=ideaput
+" set ideastatusicon=gray
+
+" === Key mappings ===
+" nnoremap 无效，原因待查
+
+" 窗口分屏
+nmap <leader>sv <C-w>v
+nmap <leader>sh <C-w>s
+nmap <leader>sc <C-w>c
+" hjkl切换窗口
+nmap <C-h> <C-W>h
+nmap <C-l> <C-W>l
+nmap <C-j> <C-W>j
+nmap <C-k> <C-W>k
+nmap <C-t> <C-W>t
+nmap <leader>h <C-W><
+nmap <leader>l <C-W>>
+nmap <leader>j <C-W>-
+nmap <leader>k <C-W>+
+" 取消搜索高亮
+nmap <leader>nh :noh<CR>
+
+" 连续缩进代码
+vmap < <gv
+vmap > >gv
+" 上下移动选中文本并保持缩进
+vmap J :move '>+1<CR>gv=gv
+vmap K :move '<-2<CR>gv=gv
+
+" 文件查找
+nmap <leader>ff <Action>(GotoFile)
+" 全局模糊搜索
+nmap <leader>fg <Action>(FindInPath)
+" 等价于idea中的shift+shift
+nmap <leader>fs <Action>(SearchEverywhere)
+" 实现类或方法查找
+nmap gi <Action>(GotoImplementation)
+" 找到被实现的类或方法
+nmap gs <Action>(GotoSuperMethod)
+" 跳转到定义或引用处
+nmap gd <Action>(GotoDeclaration)
+" 查找所有引用
+nmap gr <Action>(GotoDeclaration)
+" 查找所有引用（面板方式）
+nmap gR <Action>(FindUsages)
+" 查看hover文档提示
+nmap gh <Action>(QuickJavaDoc)
+nmap gH <Action>(ParameterInfo)
+" 跳转到类型定义处
+nmap <leader>D <Action>(GotoTypeDeclaration)
+" 重命名symbol
+nmap <leader>rn <Action>(RenameElement)
+" code action(quickfix)
+nmap <leader>ca <Action>(ShowIntentionActions)
+xmap <leader>ca <Action>(ShowIntentionActions)
+" 格式化代码
+nmap <leader>f <Action>(ReformatCode)
+" 跳转到下一个错误（诊断-Diagnosis）
+nmap [d <Action>(GotoNextError)
+" 跳转到上一个错误（诊断-Diagnosis）
+nmap ]d <Action>(GotoPreviousError)
+
+" git
+nmap <leader>hr <Action>(Vcs.RollbackChangedLines)
+nmap <leader>hk <Action>(VcsShowPrevChangeMarker)
+nmap <leader>hj <Action>(VcsShowNextChangeMarker)
+" 比较当前行
+nmap <leader>hD <Action>(Vcs.ShowDiffChangedLines)
+
+" 窗口
+" 关闭当前窗口
+nmap <leader>bc <Action>(CloseContent)
+" 跳到下一个窗口
+nmap <leader>bj <Action>(NextTab)
+" 跳到上一个窗口
+nmap <leader>bk <Action>(PreviousTab)
+" 关闭左边的所有窗口
+nmap <leader>bh <Action>(CloseAllToTheLeft)
+" 关闭右边的所有窗口
+nmap <leader>bl <Action>(CloseAllToTheRight)
+
+" 书签
+" 添加书签
+nmap mm <Action>(ToggleBookmark)
+" 跳转到下一个书签
+nmap mn <Action>(GotoNextBookmarkInEditor)
+" 跳转到上一个书签
+nmap mp <Action>(GotoPreviousBookmarkInEditor)
+" 跳转到下一个书签（所有文件）
+nmap mN <Action>(GotoNextBookmark)
+" 跳转到上一个书签（所有文件）
+nmap mP <Action>(GotoPreviousBookmark)
+" 查看所有书签（所有文件）
+nmap ma <Action>(ShowBookmarks)
+
+
+" 定位到文件
+nmap <leader>e :NERDTreeFind<CR>
+" 打开文件树、终端、大纲等推荐使用 idea 快捷键，单独映射为一个vim键不好用
