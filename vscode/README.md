@@ -75,9 +75,9 @@ VSCodeVim 插件由于是一款模拟器，所以它的配置文件是放在sett
 "vim.hlsearch": true, // 高亮显示与当前搜索匹配的所有文本
 "vim.highlightedyank.enable": true, // 开启复制高亮提示
 "vim.highlightedyank.color": "rgba(252, 93, 124, 0.7)", // 搭配复制高亮提示，指定其颜色
-"vim.sneak": true,       // 开启 sneak 模拟功能
-"vim.surround": true, // 关闭 surround 模拟功能
-"vim.easymotion": false, // 关闭 easymotion 模拟功能
+"vim.sneak": false,       // sneak 插件
+"vim.easymotion": true, // easymotion 插件
+"vim.surround": true, // surround 插件
 "vim.handleKeys": { // 委托配置的键由 VS Code 而不是 VSCodeVim 扩展处理。
     "<C-f>": true,
     "<C-b>": true,
