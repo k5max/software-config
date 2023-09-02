@@ -16,12 +16,39 @@ Plug 'preservim/nerdtree'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'machakann/vim-highlightedyank'
-set sneak
+Plug 'vim-scripts/argtextobj.vim'
+
+Plug 'easymotion/vim-easymotion'
+" Enable default mappings
+let g:EasyMotion_do_mapping = 1
+" easymotion-s是一个字符；easymotion-s2是两个字符；easymotion-sn是n个字符
+" 类似 vim-sneak, easymotion-s双向 easymotion-f 向后找 easymotion-F向前找
+nmap s <Plug>(easymotion-s2)
+xmap s <Plug>(easymotion-s2)
+" 双向跳行 注意"<Plug>(easymotion-j)向后跳行 <Plug>(easymotion-k) 向前跳行
+nmap <Leader>jl <Plug>(easymotion-bd-jk)
+xmap <Leader>jl <Plug>(easymotion-bd-jk)
+
+Plug 'terryma/vim-multiple-cursors'
+" Remap multiple-cursors shortcuts
+nmap <C-n> <Plug>NextWholeOccurrence
+xmap <C-n> <Plug>NextWholeOccurrence
+nmap <C-q> <Plug>SkipOccurrence
+xmap <C-q> <Plug>SkipOccurrence
+nmap <C-x> <Plug>RemoveOccurrence
+xmap <C-x> <Plug>RemoveOccurrence
+nmap g<C-n> <Plug>AllWholeOccurrences
+xmap g<C-n> <Plug>AllWholeOccurrences
+
+Plug 'vim-scripts/ReplaceWithRegister'
+nmap rs  <Plug>ReplaceWithRegisterOperator
+nmap rss <Plug>ReplaceWithRegisterLine
+xmap rs  <Plug>ReplaceWithRegisterVisual
 
 " 搭配 IdeaVimExtension 使用，解决自动切换中英输入法
 set keep-english-in-normal-and-restore-in-insert " normal模式英文，回到insert模式时恢复输入法
 
-" IdeaVim tips and tricks
+" === IdeaVim tips and tricks ===
 set ideajoin
 set ideamarks
 set clipboard+=ideaput

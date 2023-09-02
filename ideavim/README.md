@@ -4,11 +4,10 @@
 
 IdeaVim 插件配置
 
-## 用到的插件
+## 需要额外安装的插件
+
+AceJump
+
+IdeaVim-EasyMotion
 
 IdeaVimExtension
-
-IdeaVim-Sneak
-
-
-
