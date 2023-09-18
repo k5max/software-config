@@ -41,9 +41,9 @@ nmap g<C-n> <Plug>AllWholeOccurrences
 xmap g<C-n> <Plug>AllWholeOccurrences
 
 Plug 'vim-scripts/ReplaceWithRegister'
-nmap rs  <Plug>ReplaceWithRegisterOperator
-nmap rss <Plug>ReplaceWithRegisterLine
-xmap rs  <Plug>ReplaceWithRegisterVisual
+nmap <leader>r  <Plug>ReplaceWithRegisterOperator
+nmap <leader>rr <Plug>ReplaceWithRegisterLine
+xmap <leader>r  <Plug>ReplaceWithRegisterVisual
 
 " 搭配 IdeaVimExtension 使用，解决自动切换中英输入法
 set keep-english-in-normal-and-restore-in-insert " normal模式英文，回到insert模式时恢复输入法
