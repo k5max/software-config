@@ -27,7 +27,9 @@
     "files.autoSave": "afterDelay", // 文件自动保存
     "explorer.confirmDelete": false, // 关闭确认删除提示
     "explorer.confirmDragAndDrop": false, // 关闭确认拖放提示
-     
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": "active", 
+
     // Code style
     "[javascript]": {
         "editor.tabSize": 2,
@@ -57,11 +59,13 @@
     "vim.replaceWithRegister": true,
     "vim.sneak": false,
     "vim.easymotion": true,
-    "vim.leap.enable": true,
-    "vim.leap.caseSensitive": false,
-    "vim.leap.labels": "jklyuiopnm,qwertzxcvbahdgsf;",
-    "vim.leap.showMarkerPosition": "after",
-    "vim.leap.bidirectionalSearch": true,
+    // 非vscodevim官方设置
+    // "vim.leap.enable": true,
+    // "vim.leap.caseSensitive": false,
+    // "vim.leap.labels": "jklyuiopnm,qwertzxcvbahdgsf;",
+    // "vim.leap.showMarkerPosition": "after",
+    // "vim.leap.bidirectionalSearch": true,
+    // "vim.flash.enable": true,
     "vim.handleKeys": {
 		"<C-f>": true,
         "<C-b>": true,
@@ -275,18 +279,18 @@
         },
         //  remap vim.replaceWithRegister in normal mode
         {
-            "before": ["r", "s"],
+            "before": ["<leader>", "r"],
             "after": ["g", "r"]
         },
         {
-            "before": ["r", "s", "s"],
+            "before": ["<leader>", "r", "r"],
             "after": ["g", "r", "r"]
         }
     ],
     "vim.visualModeKeyBindingsNonRecursive": [
         //  remap vim.replaceWithRegister in visual mode
         {
-            "before": ["r", "s"],
+            "before": ["<leader>", "r"],
             "after": ["g", "r"]
         },
 		// repeatly indent in visual mode
