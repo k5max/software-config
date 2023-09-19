@@ -124,6 +124,8 @@ nmap <leader>hD <Action>(Vcs.ShowDiffChangedLines)
 " 窗口
 " 关闭当前窗口
 nmap <leader>bc <Action>(CloseContent)
+" 关闭其他窗口
+nmap <leader>bo <Action>(CloseAllEditorsButActive)
 " 跳到下一个窗口
 nmap <leader>bj <Action>(NextTab)
 " 跳到上一个窗口
