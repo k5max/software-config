@@ -72,6 +72,7 @@
         "<C-u>": true,
         "<C-d>": true,
 		"<C-o>": true,
+        "<C-i>": true,
 		"<C-r>": true,
         "<C-c>": true,
 		"<C-v>": true,
@@ -153,6 +154,11 @@
         {
             "before": ["<leader>", "b", "c"],
             "commands": ["workbench.action.closeActiveEditor"]
+        },
+        // 关闭其他editor
+        {
+            "before": ["<leader>", "b", "o"],
+            "commands": ["workbench.action.closeOtherEditors"]
         },
         // 关闭所有左侧editor
         {
