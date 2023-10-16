@@ -57,6 +57,13 @@ set clipboard+=ideaput
 " === Key mappings ===
 " nnoremap 无效，原因待查
 
+" up/down
+imap <C-j> <Down>
+imap <C-k> <Up>
+" 除此之外
+" Ctrl+j 取消原本的 Insert Live Template，然后通过 Keymap>Editor Actions 设置了 Ctrl+j => Down
+" Ctrl+k 取消原本的 Commit，然后通过 Keymap>Editor Actions 设置了 Ctrl+k => Up
+
 " 窗口分屏
 nmap <leader>sv <C-w>v
 nmap <leader>sh <C-w>s
