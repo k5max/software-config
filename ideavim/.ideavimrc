@@ -45,8 +45,8 @@ nmap <leader>r  <Plug>ReplaceWithRegisterOperator
 nmap <leader>rr <Plug>ReplaceWithRegisterLine
 xmap <leader>r  <Plug>ReplaceWithRegisterVisual
 
-" 搭配 IdeaVimExtension 使用，解决自动切换中英输入法
-set keep-english-in-normal-and-restore-in-insert " normal模式英文，回到insert模式时恢复输入法
+" 搭配 IdeaVimExtension 使用，解决自动切换中英输入法（已被Smart Input代替）
+" set keep-english-in-normal-and-restore-in-insert " normal模式英文，回到insert模式时恢复输入法
 
 " === IdeaVim tips and tricks ===
 set ideajoin
@@ -151,5 +151,5 @@ nmap ma <Action>(ShowBookmarks)
 
 
 " 定位到文件
-nmap <leader>e :NERDTreeFind<CR>
+nmap <leader>m :NERDTreeFind<CR>
 " 打开文件树、终端、大纲等推荐使用 idea 快捷键，单独映射为一个vim键不好用
