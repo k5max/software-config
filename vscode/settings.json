@@ -22,7 +22,7 @@
     "editor.cursorBlinking": "solid", // 设置光标样式 smooth样式也可以
     "editor.cursorSmoothCaretAnimation": "on", // 开启鼠标平滑动画效果
     "editor.minimap.enabled": false, // 关闭缩略图（vim下开启影响美观）
-    "editor.occurrencesHighlight": false, // 关闭相同单词匹配高亮显示
+    "editor.occurrencesHighlight": "singleFile", // 开启相同单词匹配高亮显示
     "editor.stickyScroll.enabled": true, // 开启粘性滚动
     "files.autoSave": "afterDelay", // 文件自动保存
     "explorer.confirmDelete": false, // 关闭确认删除提示
@@ -59,13 +59,8 @@
     "vim.replaceWithRegister": true,
     "vim.sneak": false,
     "vim.easymotion": true,
-    // 非vscodevim官方设置
-    // "vim.leap.enable": true,
-    // "vim.leap.caseSensitive": false,
-    // "vim.leap.labels": "jklyuiopnm,qwertzxcvbahdgsf;",
-    // "vim.leap.showMarkerPosition": "after",
-    // "vim.leap.bidirectionalSearch": true,
-    // "vim.flash.enable": true,
+    "vim.flash.enable": true, // cvim才有的功能 增加flash.nvim功能
+    "vim.flash.ignorecase": true,
     "vim.handleKeys": {
 		"<C-f>": true,
         "<C-b>": true,
@@ -80,6 +75,16 @@
         "<C-z>": true
     },
     "vim.normalModeKeyBindingsNonRecursive": [
+        // cvim 还原 f 的原生命令
+        {
+            "before": ["f"],
+            "after": ["\\"]
+        },
+        // cvim中的flash查找键设置为s
+        {
+            "before": ["s"],
+            "after": ["f"]
+        },
         // 窗口分屏
         {
             "before":["<leader>", "s", "v"],
