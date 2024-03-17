@@ -3,7 +3,7 @@ let g:mapleader=" "
 
 set showmode
 set number
-set relativenumber
+"set relativenumber
 set hlsearch
 set incsearch
 set ignorecase
@@ -69,7 +69,7 @@ nmap <leader>sv <C-w>v
 nmap <leader>sh <C-w>s
 nmap <leader>sc <C-w>c
 " hjkl切换窗口
-nmap <C-h> <C-W>h
+nmap <C-h> <C-W>h " 这个快捷键很重要，分配给IDE使用
 nmap <C-l> <C-W>l
 nmap <C-j> <C-W>j
 nmap <C-k> <C-W>k
@@ -92,6 +92,8 @@ vmap K :move '<-2<CR>gv=gv
 nmap <leader>ff <Action>(GotoFile)
 " 全局模糊搜索
 nmap <leader>fg <Action>(FindInPath)
+" 在当前文件查找
+nmap <leader>fi <Action>(Find)
 " 等价于idea中的shift+shift
 nmap <leader>fs <Action>(SearchEverywhere)
 " 实现类或方法查找
@@ -155,7 +157,6 @@ nmap mN <Action>(GotoNextBookmark)
 nmap mP <Action>(GotoPreviousBookmark)
 " 查看所有书签（所有文件）
 nmap ma <Action>(ShowBookmarks)
-
 
 " 定位到文件
 nmap <leader>m :NERDTreeFind<CR>
