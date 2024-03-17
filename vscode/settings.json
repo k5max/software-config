@@ -18,8 +18,8 @@
     "editor.tabSize": 4, // default 4
     "editor.insertSpaces": true, // 使用空格缩进，配合tabsize可以将tab转为指定空格数
     "editor.linkedEditing": true, // 符号同步修改（比如html/xml标签）
-    "editor.lineNumbers": "relative", //使用相对行号
-    "editor.cursorBlinking": "solid", // 设置光标样式 smooth样式也可以
+    // "editor.lineNumbers": "relative", //使用相对行号
+    "editor.cursorBlinking": "blink", // 设置光标样式 smooth样式也可以
     "editor.cursorSmoothCaretAnimation": "on", // 开启鼠标平滑动画效果
     "editor.minimap.enabled": false, // 关闭缩略图（vim下开启影响美观）
     "editor.occurrencesHighlight": "singleFile", // 开启相同单词匹配高亮显示
@@ -29,6 +29,12 @@
     "explorer.confirmDragAndDrop": false, // 关闭确认拖放提示
     "editor.bracketPairColorization.enabled": true,
     "editor.guides.bracketPairs": "active", 
+
+    // 自定义颜色
+    "workbench.colorCustomizations": {
+        "editorCursor.foreground": "#BBBBBB",
+        // "terminalCursor.foreground": "#BBBBBB"
+    },
 
     // Code style
     "[javascript]": {
