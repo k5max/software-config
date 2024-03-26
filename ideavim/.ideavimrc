@@ -17,6 +17,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'machakann/vim-highlightedyank'
 Plug 'vim-scripts/argtextobj.vim'
+Plug 'michaeljsmith/vim-indent-object'
 
 Plug 'easymotion/vim-easymotion'
 " Enable default mappings
@@ -94,6 +95,8 @@ nmap <leader>ff <Action>(GotoFile)
 nmap <leader>fg <Action>(FindInPath)
 " 在当前文件查找
 nmap <leader>fi <Action>(Find)
+" 查找类
+nmap <leader>fc <Action>(GotoClass)
 " 等价于idea中的shift+shift
 nmap <leader>fs <Action>(SearchEverywhere)
 " 实现类或方法查找
