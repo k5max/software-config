@@ -9,5 +9,3 @@ IdeaVim 插件配置
 AceJump
 
 IdeaVim-EasyMotion
-
-IdeaVimExtension
