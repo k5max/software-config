@@ -1,11 +1,20 @@
-" Shortcut Conflicts for Active Keymap (IdeaVim vs IDE)
+" ### 写在前头 ###
+" == Shortcut Conflicts for Active Keymap (IdeaVim vs IDE) ==
 " <C-a> <C-x> <C-c> <C-v> <C-z> <C-s> <C-r>
 " <C-b> <C-f> <C-u> <C-d> <C-e> <C-y>
 " <C-i> <C-o>
-" <C-h> <C-j> <C-k> <C-l>
+" <C-h> <C-l> <C-j> <C-k>
 " <C-r> <C-q> <C-m> <C-n> <C-[>
 " <C-^>(as <C-S-6>)
 
+" == IDEA快捷键调整 ==
+" Ctrl+j取消原本的Insert Live Template，映射为Up；Ctrl+k取消原本的Commit，映射为Down
+" （即所有用到方向上键和方向下键的同时也可以Ctrl+j和Ctrl+k导航、Terminal除外）
+
+" == 自动切换中英文输入法 ==
+" 搭配 Smart Input 使用
+
+" ### Basic ###
 let mapleader=" "
 let g:mapleader=" "
 
@@ -16,20 +25,22 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-set history=1000
+set history=5000
 set clipboard^=unnamedplus,unnamed
 
-" == Plugins ==
-" Notice: 搭配 Smart Input 使用，已解决自动切换中英输入法问题
-Plug 'preservim/nerdtree'
+" ### Plugins ###
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'machakann/vim-highlightedyank'
 Plug 'vim-scripts/argtextobj.vim'
 Plug 'michaeljsmith/vim-indent-object'
 
+Plug 'preservim/nerdtree'
+" 定位到文件
+nmap <leader>m :NERDTreeFind<CR>
+
 Plug 'easymotion/vim-easymotion'
-" Enable default mappings
+" enable default mappings
 let g:EasyMotion_do_mapping = 1
 " easymotion-s 是一个字符；easymotion-s2 是两个字符；easymotion-sn 是n个字符
 " 双向：easymotion-s 向后找：easymotion-f 向前找：easymotion-F（类似vim-sneak）
@@ -55,46 +66,13 @@ nmap <leader>r  <Plug>ReplaceWithRegisterOperator
 nmap <leader>rr <Plug>ReplaceWithRegisterLine
 xmap <leader>r  <Plug>ReplaceWithRegisterVisual
 
-" == IdeaVim tips and tricks ==
+" ### IdeaVim tips and tricks ###
 set ideajoin
 set ideamarks
 set clipboard+=ideaput
 " set ideastatusicon=gray
 
-" == Key mappings ==
-
-" IDEA 快捷键调整
-" Ctrl+j 取消原本的 Insert Live Template    Ctrl+k 取消原本的 Commit
-" Ctrl+j => Up   Ctrl+k => Down （即所有用到方向上键和方向下键的同时也可以Ctrl+j和Ctrl+k做键盘映射、Terminal除外）
-" 处理即使idea配置了快捷键，但在vim下Editor中<C-j>和<C-k>失效情况
-imap <C-j> <Down>
-imap <C-k> <Up>
-
-" nmap <C-o> <Action>(Back)
-" nmap <c-i> <Action>(Forward)
-
-" <C-w> 这个快捷键很重要，分配给IDE使用
-" 窗口分屏
-nmap <leader>sv <Action>(SplitVertically)
-nmap <leader>sh <Action>(SplitHorizontally)
-nmap <leader>sc <Action>(Unsplit)
-nmap <leader>so <Action>(UnsplitAll)
-" 窗口导航
-nmap <C-h> <C-w>h
-nmap <C-l> <C-w>l
-nmap <C-j> <C-w>j
-nmap <C-k> <C-w>k
-nmap <leader>wn <Action>(NextSplitter)
-nmap <leader>wp <Action>(PrevSplitter)
-" Full screen window
-nmap <leader>wf <Action>(HideAllWindows)
-" 设置窗口大小 (待确认)
-nmap <leader>h <C-w><
-nmap <leader>l <C-w>>
-nmap <leader>j <C-w>-
-nmap <leader>k <C-w>+
-nmap <leader>= <C-w>=
-
+" ### Key mappings ###
 " 取消搜索高亮
 nmap <leader>nh :noh<CR>
 " 连续缩进代码
@@ -108,56 +86,36 @@ imap <A-k> <Esc>:m .-2<CR>==gi
 vmap <A-j> :move '>+1<CR>gv=gv
 vmap <A-k> :move '<-2<CR>gv=gv
 
-" == 查找 ==
-" 文件查找
-nmap <leader>ff <Action>(GotoFile)
-" 全局模糊搜索
-nmap <leader>fg <Action>(FindInPath)
-" 在当前文件查找
-nmap <leader>fi <Action>(Find)
-" 查找类
-nmap <leader>fc <Action>(GotoClass)
-" 等价于idea中的shift+shift
-nmap <leader>fs <Action>(SearchEverywhere)
-" Recent files
-nmap <leader>fo <Action>(RecentFiles)
-" Find Usages
-nmap <leader>fu <Action>(FindUsages)
-" All_file bookmarks
-nmap <leader>fM <Action>(ShowBookmarks)
-" File Structure
-nmap <leader>fs <Action>(FileStructurePopup)
+" 代码提示下ctrl+j/k不生效
+imap <C-j> <Down>
+imap <c-k> <Up>
 
-" == 语法 ==
-" 实现类或方法查找
-nmap gi <Action>(GotoImplementation)
-" 找到被实现的类或方法
-nmap gs <Action>(GotoSuperMethod)
-" 跳转到定义或引用处
-nmap gd <Action>(GotoDeclaration)
-" 查找所有引用
-nmap gr <Action>(GotoDeclaration)
-" 查找所有引用（面板方式）
-nmap gR <Action>(FindUsages)
-" 查看hover文档提示
-nmap gh <Action>(QuickJavaDoc)
-nmap gH <Action>(ParameterInfo)
-" 跳转到类型定义处
-nmap <leader>D <Action>(GotoTypeDeclaration)
-" 重命名symbol
-nmap <leader>rn <Action>(RenameElement)
-" code action(quickfix)
-nmap <leader>ca <Action>(ShowIntentionActions)
-xmap <leader>ca <Action>(ShowIntentionActions)
-" 格式化代码
-nmap <leader>lf <Action>(ReformatCode)
-vmap <leader>lf <Action>(ReformatCode)
-" 跳转到下一个错误（诊断-Diagnosis）
-nmap [d <Action>(GotoNextError)
-" 跳转到上一个错误（诊断-Diagnosis）
-nmap ]d <Action>(GotoPreviousError)
+" Ctrl+w这个快捷键很重要，分配给IDE使用，不影响下面的使用
+" 窗口分屏
+nmap <leader>sv <Action>(SplitVertically)
+nmap <leader>sh <Action>(SplitHorizontally)
+nmap <leader>sc <Action>(Unsplit)
+nmap <leader>so <Action>(UnsplitAll)
+" 窗口导航
+nmap <C-h> <C-w>h
+nmap <C-l> <C-w>l
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+" 窗口大小调整 (未生效）
+nmap <leader>h <C-w><
+nmap <leader>l <C-w>>
+nmap <leader>j <C-w>-
+nmap <leader>k <C-w>+
+nmap <leader>= <C-w>=
+" 分屏跳转
+nmap <leader>wn <Action>(NextSplitter)
+nmap <leader>wp <Action>(PrevSplitter)
+" full screen window
+nmap <leader>wf <Action>(HideAllWindows)
+" zen model
+nmap <leader>wz <Action>(ToggleZenMode)
 
-" == 窗口 ==
+" == Window ==
 " 关闭当前窗口
 nmap <leader>bc <Action>(CloseContent)
 " 打开关闭的窗口
@@ -177,7 +135,76 @@ nmap <leader>bp <Action>(PinActiveEditorTab)
 " jump between two tabs alternately (Ctrl-^)
 nmap <leader>bb <C-^>
 
-" == 书签 ==
+" == Find/Replace or Navigation ==
+" 文件查找
+nmap <leader>ff <Action>(GotoFile)
+" 全局模糊搜索 (ctrl+shift+f)
+nmap <leader>fg <Action>(FindInPath)
+vmap <leader>fg <Action>(FindInPath)
+" 在当前文件查找 (ctrl+f)
+nmap <leader>fi <Action>(Find)
+vmap <leader>fi <Action>(Find)
+" SearchEverywhere (shift+shift)
+nmap <leader>fa <Action>(SearchEverywhere)
+" Goto Action
+nmap <leader>fA <Action>(GotoAction)
+" Goto Symbol
+nmap <leader>fs <Action>(GotoSymbol)
+" Goto Class
+nmap <leader>fc <Action>(GotoClass)
+" Recent files
+nmap <leader>fo <Action>(RecentFiles)
+" Find Usages
+nmap <leader>fu <Action>(FindUsages)
+" All_file bookmarks
+nmap <leader>fM <Action>(ShowBookmarks)
+" 在当前文件替换 (ctrl+r)
+nmap <leader>ri <Action>(Replace)
+vmap <leader>ri <Action>(Replace)
+" 全局替换 (ctrl+shift+r)
+nmap <leader>rg <Action>(ReplaceInPath)
+vmap <leader>rg <Action>(ReplaceInPath)
+" File Structure
+nmap <leader>fS <Action>(FileStructurePopup)
+
+" == 语法 ==
+" 实现类或方法查找
+nmap gi <Action>(GotoImplementation)
+" 找到被实现的类或方法
+nmap gs <Action>(GotoSuperMethod)
+" 跳转到定义或引用处
+nmap gd <Action>(GotoDeclaration)
+" 查找所有引用
+nmap gr <Action>(GotoDeclaration)
+" 查找所有引用（面板方式）
+nmap gR <Action>(FindUsages)
+" 查看hover文档提示
+nmap gh <Action>(QuickJavaDoc)
+nmap gp <Action>(ParameterInfo)
+" 跳转到类型定义处
+nmap gt <Action>(GotoTypeDeclaration)
+" 跳转到测试类
+nmap ge <Action>(GotoTest)
+" Hierarchy
+nmap gC <Action>(CallHierarchy)
+nmap gT <Action>(TypeHierarchy)
+nmap gM <Action>(MethodHierarchy)
+" 重命名symbol
+nmap <leader>rn <Action>(RenameElement)
+" 重命名文件
+nmap <leader>rf <Action>(RenameFile)
+" code action(quickfix)
+nmap <leader>ca <Action>(ShowIntentionActions)
+xmap <leader>ca <Action>(ShowIntentionActions)
+" 格式化代码
+nmap <leader>lf <Action>(ReformatCode)
+vmap <leader>lf <Action>(ReformatCode)
+" 跳转到下一个错误（诊断-Diagnosis）
+nmap [d <Action>(GotoNextError)
+" 跳转到上一个错误（诊断-Diagnosis）
+nmap ]d <Action>(GotoPreviousError)
+
+" == Bookmark ==
 " 添加书签
 nmap mm <Action>(ToggleBookmark)
 " 编辑书签
@@ -193,14 +220,12 @@ nmap mP <Action>(GotoPreviousBookmark)
 " 查看所有书签（所有文件）
 nmap ma <Action>(ShowBookmarks)
 
-" == git ==
+" == Git ==
 nmap <leader>hr <Action>(Vcs.RollbackChangedLines)
 nmap <leader>hk <Action>(VcsShowPrevChangeMarker)
 nmap <leader>hj <Action>(VcsShowNextChangeMarker)
 " 比较当前行
 nmap <leader>hD <Action>(Vcs.ShowDiffChangedLines)
-" 弹出快速操作列表
-nmap <leader>yp <Action>(Vcs.QuickListPopupAction)
 
 nmap <leader>gb <Action>(Git.Branches)
 nmap <leader>gp <Action>(Git.Pull)
@@ -208,10 +233,18 @@ nmap <leader>gP <Action>(Git.Push)
 nmap <leader>gr <Action>(Git.Rebase)
 nmap <leader>gm <Action>(Git.Merge)
 
-nmap <leader>ri <Action>(Replace)
-nmap <leader>fi <Action>(Find)
+" == Debug ==
+nmap <leader>dt <Action>(ToggleLineBreakpoint)
+nmap <Leader>da <Action>(ViewBreakpoints)
 
-" == tool windows ==
+" == Popup ==
+" 显示弹出菜单
+nmap <leader>pm <Action>(ShowPopupMenu)
+" 弹出vsc快速操作列表
+nmap <leader>pg <Action>(Vcs.QuickListPopupAction)
+
+" ### Tool windows ###
+" 打开终端、大纲等Tool windows推荐使用IDEA快捷键
 " <A-0> Commit
 " <A-1> Project
 " <A-2> Bookmarks
@@ -224,8 +257,5 @@ nmap <leader>fi <Action>(Find)
 " <A-9> Version Control
 " .. Hierarchy
 " .. TODO
+" .. Endpoint
 " <A-f12> Terminal
-
-" 定位到文件
-nmap <leader>m :NERDTreeFind<CR>
-" 打开文件树、终端、大纲等推荐使用 idea 快捷键，单独映射为一个vim键不好用
