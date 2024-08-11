@@ -1,19 +1,33 @@
 [
-	{ // activitybar visibility
-		"key": "alt+a",
-		"command": "workbench.action.toggleActivityBarVisibility"
+	{ // make cursor back to editor
+		"key": "alt+m",
+		"command": "workbench.action.focusActiveEditorGroup"
 	},
-	{ // quit panel (except terminal)
+	{ // hide panel
 		"key": "alt+q",
 		"command": "workbench.action.closePanel"
 	},
-	{ // make cursor back to editor => solve the jump problem between terminal and editor
-		"key": "ctrl+k",
-		"command": "workbench.action.focusActiveEditorGroup",
-		"when": "panelFocus && activePanel"
+	{ // toggle activitybar
+		"key": "alt+a",
+		"command": "workbench.action.toggleActivityBarVisibility"
+	},
+	{ // enter search bar
+		"key": "enter",
+		"command": "search.focus.nextInputBox",
+		"when": "inSearchEditor && inputBoxFocus || inputBoxFocus && searchViewletVisible"
+	},
+	{ // move line down
+		"key": "alt+j",
+		"command": "editor.action.moveLinesDownAction",
+		"when": "editorTextFocus && !editorReadonly"
+	},
+	{ // move line up
+		"key": "alt+k",
+		"command": "editor.action.moveLinesUpAction",
+		"when": "editorTextFocus && !editorReadonly"
 	},
 
-	// -----vim settings start------
+	// --- window settings start ---
     { // window move down
 		"key": "ctrl+j",
 		"command": "vim.remap",
@@ -58,9 +72,9 @@
 			]
 		}
 	},
-	// -----vim settings end------
+	// --- window settings end ---
 
-	// -----file explorer start------
+	// --- file explorer start ---
 	{ // move down
 		"key": "j",
 		"command": "list.focusDown",
@@ -111,20 +125,17 @@
 		"command": "renameFile",
 		"when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
 	},
-	// copy file
-	{
+	{ // copy file
 		"command": "filesExplorer.copy",
 		"key": "c",
 		"when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
 	},
-	// paste file
-	{
+	{ // paste file
 		"command": "filesExplorer.paste",
 		"key": "p",
 		"when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
 	},
-	// cut file
-	{
+	{ // cut file
 		"command": "filesExplorer.cut",
 		"key": "x",
 		"when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
@@ -134,9 +145,9 @@
 		"command": "-renameFile",
 		"when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
 	},
-	// -----file explorer end------
+	// --- file explorer end ---
 
-	// -----terminal start------
+	// --- terminal start ---
 	{ // toggle terminal
 		"key": "ctrl+\\",
 		"command": "workbench.action.terminal.toggleTerminal",
@@ -147,9 +158,19 @@
 		"command": "workbench.action.toggleMaximizedPanel",
 		"when": "terminalFocus"
 	},
-	// -----terminal end------
+	// --- terminal end ---
 
-	// -----suggest item start------
+	// --- navigate item start ---
+	{ // move down
+		"key": "ctrl+j",
+		"command": "list.focusDown",
+		"when": "listFocus && !inputFocus && !treestickyScrollFocused"
+	},
+	{ // move down
+		"key": "ctrl+k",
+		"command": "list.focusUp",
+		"when": "listFocus && !inputFocus && !treestickyScrollFocused"
+	},
 	{ // move down at auto completion prompt
 		"key": "ctrl+j",
 		"command": "selectNextSuggestion",
@@ -170,16 +191,6 @@
 		"command": "workbench.action.quickOpenNavigatePrevious",
 		"when": "inQuickOpen"
 	},
-	{ // move down at problem open
-		"key": "ctrl+shift+j",
-		"command": "list.focusDown",
-		"when": "panelFocus && activePanel == 'workbench.panel.markers' "
-	},
-	{ // move up at problem open
-		"key": "ctrl+shift+k",
-		"command": "list.focusUp",
-		"when": "panelFocus && activePanel == 'workbench.panel.markers' "
-	},
 	{ // move down at code action
   		"key": "ctrl+j",
   		"command": "selectNextCodeAction",
@@ -190,11 +201,15 @@
   		"command": "selectPrevCodeAction",
   		"when": "codeActionMenuVisible"
 	},
-	// -----suggest item end------
-
-	{ // enter search bar
-		"key": "enter",
-		"command": "search.focus.nextInputBox",
-		"when": "inSearchEditor && inputBoxFocus || inputBoxFocus && searchViewletVisible"
+	{ // move down at parameter hint
+		"key": "ctrl+j",
+		"command": "showNextParameterHint",
+		"when": "editorFocus && parameterHintsMultipleSignatures && parameterHintsVisible"
+	},
+	{ // move up at parameter hint
+		"key": "ctrl+k",
+		"command": "showPrevParameterHint",
+		"when": "editorFocus && parameterHintsMultipleSignatures && parameterHintsVisible"
 	}
+	// --- navigate item end ---
 ]

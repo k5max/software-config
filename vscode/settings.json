@@ -1,4 +1,5 @@
 {
+    // ### Basic settings start ###//
     // Visual
     "workbench.startupEditor": "none",
     "workbench.colorTheme": "One Dark Pro",
@@ -12,13 +13,14 @@
     // "editor.scrollbar.verticalScrollbarSize": 0,
     
     // Editor
+    "editor.fontSize": 15,
     "editor.fontFamily": "Fira Code, Source Code Pro, 'Courier New', monospace",
     "editor.fontLigatures": true, // 开启字体连字
     "editor.detectIndentation": true, // 开启editor的自动检测缩进
     "editor.tabSize": 4, // default 4
     "editor.insertSpaces": true, // 使用空格缩进，配合tabsize可以将tab转为指定空格数
     "editor.linkedEditing": true, // 符号同步修改（比如html/xml标签）
-    // "editor.lineNumbers": "relative", //使用相对行号
+    //"editor.lineNumbers": "relative", //使用相对行号
     "editor.cursorBlinking": "blink", // 设置光标样式 smooth样式也可以
     "editor.cursorSmoothCaretAnimation": "on", // 开启鼠标平滑动画效果
     "editor.minimap.enabled": false, // 关闭缩略图（vim下开启影响美观）
@@ -32,9 +34,13 @@
 
     // 自定义颜色
     "workbench.colorCustomizations": {
-        "editorCursor.foreground": "#BBBBBB",
+        // "editorCursor.foreground": "#BBBBBB",
         // "terminalCursor.foreground": "#BBBBBB"
     },
+
+    // Git config
+    // git 不要弹窗确认是否同意 sync
+    "git.confirmSync": false,
 
     // Code style
     "[javascript]": {
@@ -45,14 +51,9 @@
         "editor.tabSize": 2,
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
+    // ### Basic settings start ###//
 
-    // Cit config
-    // git 不要弹窗确认是否同意 sync
-    "git.confirmSync": false,
-    
-    /** Extension configs **/
-
-    // Vim settings start
+    // ### VSCodeVim settings start ###
     "vim.useCtrlKeys": true,
     "vim.useSystemClipboard": true,
     "vim.leader": "<space>",
@@ -78,7 +79,13 @@
         "<C-c>": true,
 		"<C-v>": true,
 		"<C-w>": true,
-        "<C-z>": true
+        "<C-z>": true,
+        "<C-a>": true,
+        "<C-x>": true
+    },
+    // To improve performance
+    "extensions.experimental.affinity": {
+      "vscodevim.vim": 1
     },
     "vim.normalModeKeyBindingsNonRecursive": [
         // cvim 还原 f 的原生命令
@@ -104,6 +111,10 @@
             "before":["<leader>", "s", "c"],
             "after":["<C-w>", "c"]
         },
+        {
+            "before":["<leader>", "s", "o"],
+            "after":["<C-w>", "o"]
+        },
         // 设置窗口比例
         {
             "before":["<leader>", "h"],
@@ -121,45 +132,67 @@
             "before":["<leader>", "k"],
             "after":["<C-w>", "+"]
         },
+        {
+            "before":["<leader>", "="],
+            "after":["<C-w>", "="]
+        },
         // 取消搜索高亮
         {
             "before":["<leader>", "n", "h"],
             "commands": [":nohl"]
         },
-        // 格式化代码
+        // code format
         {
-			"before": ["<leader>", "f"],
+			"before": ["<leader>", "l", "f"],
 			"commands": ["editor.action.formatDocument"]
 		},
-        // 打开侧边栏
+        // toggle sidebar
         {
 			"before": ["<leader>", "e"],
 			"commands": ["workbench.action.toggleSidebarVisibility"]
 		},
-        // 打开大纲
+        // toggle auxiliarybar
         {
 			"before": ["<leader>", "o"],
 			"commands": ["workbench.action.toggleAuxiliaryBar"]
+		},
+        // find and replace
+        {
+			"before": ["<leader>", "f", "i"],
+			"commands": ["actions.find"]
+		},
+        {
+			"before": ["<leader>", "r", "i"],
+			"commands": ["editor.action.startFindReplaceAction"]
+		},
+        {
+			"before": ["<leader>", "r", "g"],
+			"commands": ["workbench.action.replaceInFiles"]
 		},
         // 搜索文件
         {
 			"before": ["<leader>", "f", "f"],
 			"commands": ["workbench.action.quickOpen"]
 		},
-        // 全局搜索内容 以search editor 打开
-        {
-			"before": ["<leader>", "f", "g"],
-			"commands": ["search.action.openEditor"]
-		},
         // 全局搜索内容 默认窗口打开
         {
-			"before": ["<leader>", "f", "G"],
+			"before": ["<leader>", "f", "g"],
 			"commands": ["workbench.view.search"]
 		},
-        // 打开版本控制
+        // 全局搜索内容 以search editor 打开
         {
-			"before": ["<leader>", "g"],
-			"commands": ["workbench.view.scm"]
+			"before": ["<leader>", "f", "G"],
+			"commands": ["search.action.openEditor"]
+		},
+        // goto symbol (current file)
+        {
+			"before": ["<leader>", "f", "s"],
+			"commands": ["workbench.action.gotoSymbol"]
+		},
+        // goto symbol (all files)
+        {
+			"before": ["<leader>", "f", "S"],
+			"commands": ["workbench.action.showAllSymbols"]
 		},
         // 关闭当前editor
         {
@@ -181,16 +214,27 @@
             "before": ["<leader>", "b", "l"],
             "commands": ["workbench.action.closeEditorsToTheRight"]
         },
-        // 打开下一个editor
+        // 跳到下一个editor
         {
             "before": ["<leader>", "b", "j"],
             "commands": ["workbench.action.nextEditor"]
         },
-        // 打开上一个editor
+        // 跳到上一个editor
         {
             "before": ["<leader>", "b", "k"],
             "commands": ["workbench.action.previousEditor"]
         },
+        // 移动editor到右边
+        {
+            "before": ["<leader>", "b", "J"],
+            "commands": ["workbench.action.moveEditorRightInGroup"]
+        },
+        // 移动editor到左边
+        {
+            "before": ["<leader>", "b", "K"],
+            "commands": ["workbench.action.moveEditorLeftInGroup"]
+        },
+        // cant remap pin/unpin editor toggle
         // 查看hover
         {
             "before": ["g", "h"],
@@ -223,8 +267,18 @@
         },
         // 跳转到type_definition
         {
-            "before": ["<leader>", "D"],
+            "before": ["g", "t"],
             "commands": ["editor.action.goToTypeDefinition"]
+        },
+        // 查看type_hierarchy
+        {
+            "before": ["g", "T"],
+            "commands": ["references-view.showTypeHierarchy"]
+        },
+        // 查看call_hierarchy
+        {
+            "before": ["g", "C"],
+            "commands": ["references-view.showCallHierarchy"]
         },
         // rename symbol
         {
@@ -251,7 +305,12 @@
             "before": ["[", "d"],
             "commands": ["editor.action.marker.prev"]
         },
-        // vscode git 相关不太好模拟，这里就不处理了
+        // 打开版本控制
+        {
+			"before": ["<leader>", "g", "g"],
+			"commands": ["workbench.view.scm"]
+		},
+        // vscode git 相关不太好模拟，这里就不做了
 
         // 搭配Bookmarks插件
         // 书签开关
@@ -294,6 +353,11 @@
             "before": ["m", "x"],
             "commands": ["bookmarks.clearFromAllFiles"]
         },
+        // 所有文件的书签
+        {
+            "before": ["m", "a"],
+            "commands": ["bookmarks.listFromAllFiles"]
+        },
         //  remap vim.replaceWithRegister in normal mode
         {
             "before": ["<leader>", "r"],
@@ -305,6 +369,19 @@
         }
     ],
     "vim.visualModeKeyBindingsNonRecursive": [
+        // find and replace
+        {
+			"before": ["<leader>", "f", "i"],
+			"commands": ["actions.find"]
+		},
+        {
+			"before": ["<leader>", "r", "i"],
+			"commands": ["editor.action.startFindReplaceAction"]
+		},
+        {
+			"before": ["<leader>", "r", "g"],
+			"commands": ["workbench.action.replaceInFiles"]
+		},
         //  remap vim.replaceWithRegister in visual mode
         {
             "before": ["<leader>", "r"],
@@ -320,13 +397,17 @@
 			"commands": ["editor.action.outdentLines"]
 		},
         {
-            "before": ["<leader>", "f"],
+            "before": ["<leader>", "l", "f"],
             "commands": ["editor.action.formatSelection"]
         }
-    ],
+    ]
     // Vim 中英文输入法切换设置 此处为win10 + scoop安装im-select的配置方案 xxx填上用户名
     // "vim.autoSwitchInputMethod.enable": true,
     // "vim.autoSwitchInputMethod.defaultIM": "1033",  // 默认英文输入法-即normal模式下需要的输入法 
     // "vim.autoSwitchInputMethod.obtainIMCmd": "C:/Users/xxx/scoop/apps/im-select/current/im-select.exe",
     // "vim.autoSwitchInputMethod.switchIMCmd": "C:/Users/xxx/scoop/apps/im-select/current/im-select.exe {im}"
+    // ### VSCodeVim settings end ###
+
+    // ### Other extension settings start ###
+    // ### Other extension settings end ###
 }
